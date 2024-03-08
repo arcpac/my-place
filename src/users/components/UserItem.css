@@ -1,0 +1,31 @@
+.user-item {
+  width: 18rem;
+}
+.user-item__image {
+  width: 4rem;
+  height: 4rem;
+}
+// ====== //
+.user-item a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  padding: 1rem;
+  color: white;
+  background: #292929;
+}
+
+.user-item .card:hover,
+.user-item .card:active {
+  color: #a1aab9 !important;
+}
+
+.card {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+  border: 0px !important;
+  background-color: #f2f5f8 !important;
+  color: #000 !important
+}
+
