@@ -6,6 +6,7 @@ import NewPlace from './places/pages/NewPlace';
 import MainNavigation from './users/components/Navigation/MainNavigation';
 import PlaceList from './places/components/PlaceList';
 import UserPlaces from './places/pages/UserPlaces';
+import UpdatePlace from './places/pages/UpdatePlace';
 
 
 const App = () => {
@@ -25,6 +26,9 @@ const App = () => {
           </Route>
           <Route path="/places/new" exact={true}>
             <NewPlace />
+          </Route>
+          <Route path="/places/:placeId" exact={true}>
+            <UpdatePlace />
           </Route>
           <Redirect path="/no-page" />
         </ Switch>
