@@ -16,7 +16,8 @@ const UserList = (props) => {
 
     return (
         <div className='container'>
-            <div className='row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4'>
+            <div className='row row-cols-lg-3 row-cols-md-2 row-cols-1 g-5'>
+                {/* color febe11 */}
                 {props.items.map(user => (
                     <UserItem
                         id={user.id}

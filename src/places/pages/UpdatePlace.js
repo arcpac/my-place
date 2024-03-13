@@ -4,6 +4,7 @@ import Input from "../../shared/components/Input/Input";
 import Button from "../../shared/components/Buttons/Button";
 import './PlaceForm.css'
 import { useForm } from "../../shared/hooks/form-hook";
+import { useEffect } from "react";
 
 const DUMMY_PLACES = [
     {
@@ -20,7 +21,7 @@ const DUMMY_PLACES = [
     },
     {
         id: 2,
-        title: 'Empire State Building',
+        title: 'Location number 2',
         description: 'One of the most famous sky scrapers in the world!',
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
         address: '20 W 34th St, New York, NY 10001',
@@ -32,7 +33,7 @@ const DUMMY_PLACES = [
     },
     {
         id: 3,
-        title: 'Empire State Building',
+        title: '10/2-4 Pitt Street',
         description: 'One of the most famous sky scrapers in the world!',
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
         address: '20 W 34th St, New York, NY 10001',
@@ -45,22 +46,52 @@ const DUMMY_PLACES = [
 ];
 const UpdatePlace = (props) => {
     const placeId = useParams().placeId
-    const identifiedPlace = DUMMY_PLACES.find(p => p.id === parseInt(placeId))
 
-    const [formState, inputHandler] = useForm({
+    const [formState, inputHandler, setFormData] = useForm({
         title: {
-            value: identifiedPlace.title,
-            isValid: true
+            value: "",
+            isValid: false
         },
         description: {
-            value: identifiedPlace.description,
-            isValid: true
+            value: "",
+            isValid: false
         }
-    })
+    }, false)
+
+    const identifiedPlace = DUMMY_PLACES.find(p => p.id === parseInt(placeId))
+
+    useEffect(() => {
+        if (identifiedPlace) {
+            setFormData({
+                title: {
+                    value: identifiedPlace.title,
+                    isValid: true
+                },
+                description: {
+                    value: identifiedPlace.description,
+                    isValid: true
+                }
+            })
+        }
+    }, [setFormData, identifiedPlace])
+
+    const updateSubmitHandler = (event) => {
+        event.preventDefault();
+
+        console.log(formState.inputs)
+    }
+
+    if (!identifiedPlace) {
+        return (
+            <div>
+                No place
+            </div>
+        )
+    }
 
     return (<>
         Update place {placeId}
-        <form className="form-control">
+        <form className="form-control" onSubmit={updateSubmitHandler}>
             <Input
                 id="title"
                 element="input"

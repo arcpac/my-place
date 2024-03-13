@@ -1,3 +1,4 @@
+import Button from '../../shared/components/Buttons/Button';
 import Card from '../../shared/components/Card';
 import PlaceItem from './PlaceItem';
 import './PlaceList.css'
@@ -7,6 +8,7 @@ const PlaceList = (props) => {
         return (
             <Card>
                 <h2>No places found.</h2>
+                <Button to="/places/new">Add place</Button>
             </Card>
         )
     }

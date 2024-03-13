@@ -20,7 +20,6 @@ const inputReducer = (state, action) => {
 }
 
 const Input = (props) => {
-
     const [inputState, dispatch] = useReducer(inputReducer,
         {
             value: props.initialValue || '',
@@ -56,7 +55,7 @@ const Input = (props) => {
             );
 
     return (
-        <div className={`form-control`}>
+        <div className={``}>
             <label htmlFor={props.id}>{props.label}</label>
             {element}
 

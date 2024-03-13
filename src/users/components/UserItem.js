@@ -5,7 +5,7 @@ const UserItem = (props) => {
     return (
         <div className='col user-item'>
             <Link to={`/${props.id}/place`}>
-                <div className="card">
+                <div className="card shadow">
                     <div className='user-item__image'>
                         <Avatar image={props.image} alt={props.image} className="card-img-top" />
                     </div>

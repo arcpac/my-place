@@ -22,8 +22,8 @@ const NewPlace = () => {
     }
     return (
         <div className="container">
-            <div class="row justify-content-md-center">
-                <div className="col-auto">
+            <div className="row justify-content-md-center">
+                <div className="col-auto card shadow">
                     <form className="place-form" onSubmit={placeSubmitHandler}>
                         <Input
                             id="title"
@@ -49,7 +49,11 @@ const NewPlace = () => {
                             errorText="Please enter a valid address."
                             onInput={inputHandler}
                         />
-                        <Button type='submit' disabled={!formState.isValid}>Add Place</Button>
+                        <div className="row justify-content-md-center my-3">
+                            <div className="col-auto">
+                                <Button className="btn btn-warning" type='submit' disabled={!formState.isValid}>Add Place</Button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
