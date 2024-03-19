@@ -4,9 +4,13 @@
  
 ![Alt Text](./giphy.gif)
 
-## Getting Started with Create React App
+## Features
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is built with MERN Stack. It shows the best way to build least and efficient components in ReactJS.
+
+> or maybe not the best way in some cases.
+> feel free to message for improvement
+
 
 ## Available Scripts
 
