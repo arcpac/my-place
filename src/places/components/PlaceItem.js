@@ -8,24 +8,37 @@ const PlaceItem = (props) => {
 
     const openMapHandler = () => setShowMap(true)
     const closeMapHandler = () => setShowMap(false)
+    const modalMap = (
+        <Modal show={showMap} onHide={closeMapHandler}>
+            <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Woohoo, you are reading this text in a modal!
+
+                <Button variant="secondary" onClick={closeMapHandler}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={closeMapHandler}>
+                    Save Changes
+                </Button>
+            </Modal.Body>
+            <Modal.Footer>Footer</Modal.Footer>
+        </Modal>
+    )
     return (
         <>
-            <Modal show={showMap} onHide={closeMapHandler}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Woohoo, you are reading this text in a modal!
-
-                    <Button variant="secondary" onClick={closeMapHandler}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={closeMapHandler}>
-                        Save Changes
-                    </Button>
-                </Modal.Body>
-                <Modal.Footer>Footer</Modal.Footer>
-            </Modal>
-            <div class="col-md-6">
+            {modalMap}
+            <div className='col-4'>
+                <div class="card border-0">
+                    <img src={props.image} />
+                    <div class="card-body">
+                        <h5 class="card-title">{props.title}</h5>
+                        <p class="card-text">{props.description}</p>
+                        <Button className="btn btn-warning" onClick={openMapHandler}>View on map</Button>
+                    </div>
+                </div>
+            </div>
+            {/* <div class="col-md-6">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-primary-emphasis">{props.title}</strong>
@@ -38,10 +51,10 @@ const PlaceItem = (props) => {
                         <Button className="btn btn-default">Delete</Button>
                     </div>
                     <div class="col-auto d-none d-lg-block">
-                        <img src={props.image} />
+                        <img src={props.image} width="100" height="100" />
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }
