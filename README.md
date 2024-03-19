@@ -2,7 +2,7 @@
 
  🚧🚧🚧🚧🚧
  
-![Alt text](https://giphy.com/embed/th5if2irUcjPtnrn1a)
+![Alt Text](./giphy.gif)
 
 ## Getting Started with Create React App
 
